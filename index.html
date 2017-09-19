@@ -153,40 +153,36 @@ map.on('mousemove', function (e) {
 });
 </script>
 
-    
 <style>
-#map {
-    position: fixed;
-    width:50%;
+.map-overlay-container {
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1;
 }
-#features {
-    width: 50%;
-    margin-left: 50%;
-    font-family: Tw Cen MT;
-    overflow-y: scroll;
-    background-color: #ffffff;
+
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.20);
 }
-section {
-    padding:  25px 25px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 20px;
-}
-section.active {
-    opacity: 1;
-}
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 100px;
+
+.map-overlay h2,
+.map-overlay p {
+    margin: 0 0 10px;
 }
 </style>
+
 <div id='map'></div>
 <div id='features'>
     <section id='intro' class='active'>
     <h3> Hi. I'm JKev </h3>
     <p> I have lived and visited more than a few places over the course of my relatively short life, and it has affected me profoundly in the way that I live my life, conduct my work, and view the world around me.</p>
-        <br><br>Let me guide you through this map I've created, and then I'll tell (and show) you a little bit about myself that maybe you weren't able to pick up on in my cover letter and resume</p>
+        <br>Let me guide you through this map I've created, and then I'll tell (and show) you a little bit about myself that maybe you weren't able to pick up on in my cover letter and resume</p>
     </section>
     
     <section id='directions' class='active'> 
