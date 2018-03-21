@@ -4,8 +4,8 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -14,32 +14,33 @@
 <body>
 
 <style>
-.map-overlay-container {
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    bottom: 0;
-    left: 5;
-    padding: 10px;
+#map {
+    position: fixed;
+    width:50%;
+}
+
+#features {
+    width: 50%;
+    margin-left: 50%;
+    font-family: sans-serif;
     overflow-y: scroll;
-    z-index: 1;
+    background-color: #fafafa;
 }
-
-.map-overlay {
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    background-color: #fff;
-    border-radius: 3px;
-    padding: 10px;
-    box-shadow:0 1px 2px rgba(0,0,0,0.20);
+section {
+    padding:  25px 50px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 13px;
 }
-
-.map-overlay h2,
-.map-overlay p {
-    margin: 0 0 10px;
+section.active {
+    opacity: 1;
+}
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 200px;
 }
 </style>
-
-<div id='map'></div>
 
 <div class='map-overlay-container'>
   <div class='map-overlay'>
@@ -47,38 +48,55 @@
     <p id='location-description'></p>
 <div id='map'></div>
 <div id='features'>
-    <h3> Hello! I'm Kevin. Welcome to All the Places I've Been!</h3>
-    <small>(I also go by JKev if you're more of a nickname person) </small>
-    <p> I have lived and visited more than a few places over the course of my relatively short life, and it has affected me profoundly in the way that I live my life, conduct my work, and view the world around me.</p>
+    <section id='Hello' class='active'>
+        <h3> Hello! I'm Kevin. Welcome to All the Places I've Been!</h3>
+        <small>(I also go by JKev if you're more of a nickname person) </small>
+        <p> I have lived and visited more than a few places over the course of my relatively short life, and it has affected me profoundly in the way that I live my life, conduct my work, and view the world around me.</p>
         <br>Let me guide you through this map I've created, and tell you a little bit about each place I've lived and how they have shaped who I am.</p>
-    <p style="color:red">Red Dots: Places I've lived</p>
-    <p style="color:blue">Blue Dots: Places I've visited</p>
-    <small>(I've selected some major spots, it's not a complete list)</small>
-    <p style="color:black">Black Lines: Trails I've backpacked (look near Cusco and in Southern Chile)</p>
-    <p>Click anywhere to fix a point, then click another spot to form a line. Click the same point again to delete it.</p>
-    <small>Now, play connect the dots and let me know what awesome shapes you've come up with!</small>
-<h3>Where I've Lived</h3>
-<h4>New York &amp; Boston</h4>
+        <p style="color:red">Red Dots: Places I've lived</p>
+        <p style="color:blue">Blue Dots: Places I've visited</p>
+        <small>(I've selected some major spots, it's not a complete list)</small>
+        <p style="color:black">Black Lines: Trails I've backpacked (look near Cusco and in Southern Chile)</p>
+        <p>Click anywhere to fix a point, then click another spot to form a line. Click the same point again to delete it.</p>
+        <small>Now, play connect the dots and let me know what awesome shapes you've come up with!</small>
+    </section>
+
+    <section id= 'Where lived'>
+        <h3>Where I've Lived</h3>
+      </section>
+      <section id= 'new york'>  
+      <h4>New York &amp; Boston</h4>
 <p>Born in New York, raised in Boston. The youngest of four, I'm outnumbered by Yankees fans, but luckily the last 17 years or so have been a good time to be a Boston sports fan. This time of my life was, as it is for everyone, foundational. I played every sport I could, had a small army of Star Wars toys and Beanie Babies, milked Windows 95 for all it was worth, and my parents still managed to instill the importance of hard work and a good education.</p>
-<h4>Florida</h4>
+      </section>
+      <section id= 'florida'>
+      <h4>Florida</h4>
 <p>My dad got a job in Naples, FL my second year of high school, and we moved down to a place vastly different from New England in just about every way imaginable. I learned the &nbsp;value of starting fresh and reinventing yourself while also appreciating how your local environment and culture can affect how you live and view the world.</p>
-<h4>Holy Cross</h4>
+        </section>
+      <section id= 'holy cross'>
+      <h4>Holy Cross</h4>
 <p>As the world becomes increasingly automated, I think the value of creative, non-linear, non-repetitive thought is increasing as well. Holy Cross taught me how to learn: to think and write critically and form opinions independently, to question the world in front of us and seek&nbsp;<em>magis&nbsp;(</em>the more) from our lives.</p>
-<h4>Dublin, Ireland</h4>
+      </section>
+      <section id= 'dublin'>
+      <h4>Dublin, Ireland</h4>
 <p>I spent a semester studying at University College Dublin while at Holy Cross. It was an immense privilege to be able to experience another country (even if Ireland is pretty westernized and English-speaking, there are still cultural differences), travel through Europe, and connect in a deeper way with my Irish background (I'm an Irish Dual-Citizen and have a number of cousins living there). It peaked my interest in international travel, which would influence me a few years down the line. See below!</p>
-<h4>Juneau, AK</h4>
+      </section>
+    <section id= 'juneau'>
+      <h4>Juneau, AK</h4>
 <p>The Jesuit commitment of "men and women for others" at Holy Cross inspired me to pursue a year of service with the Jesuit Volunteer Corps Northwest, which brought me to Juneau, AK, doing outdoor recreation working with people experiencing disabilities. We inspired independent living and skill-building through hiking, rock climbing, kayaking, and just about any other outdoor activity you can think of. I also learned the importance of getting to know the individuals that you work with. Everyone has a story that affects their worldview, and particular strengths and weaknesses as a result. I learned not to make assumptions because of someone's background and to capitalize on individuals' strengths to accomplish our group goals. I never thought that adaptive skiing or rock climbing would translate into skills in the professional world!</p>
 <p>I liked Juneau so much, I didn't leave for another three and a half years. I worked in economic development and tourism marketing and explored the mountains and glaciers of Alaska on an almost daily basis.</p>
 <p><img src="http://landscapesontherun.com/wp-content/uploads/2016/10/20160831-IMG_7180.jpg" alt="" width="100%" /></p>
-<h4>Woodstock, Vermont, Cuba &amp; South America</h4>
+      </section>
+    <section id= 'everything else>
+      <h4>Woodstock, Vermont, Cuba &amp; South America</h4>
 <p>I'm sure these two locations don't get put together very often. Alaska was a beautiful place, but I was stagnating professionally, and ready for a change. I took my passion for sustainable business, tourism marketing experience, and desire for international travel and combined it all into a sustainable adventure travel blog, <a title="Landscapes on the Run" href="http://landscapesontherun.com" target="_blank" rel="noopener">landscapesontherun.com</a>. I sold most of my belongings and moved to Vermont, where my parents live, before taking off to Cuba and South America, seeking out sustainable travel experiences everywhere I went. I spent a month in Lima learning Spanish, and the following four months fumbling over my words with increasing proficiency through Chile, Bolivia and Peru again.</p>
 <p>I took a 1 second of video just about every day and compiled it into one. Take a look at it here:</p>
 <p><iframe src="https://www.youtube.com/embed/LVpSrCBdGvU" width="100%" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
 <h4>And now?</h4>
+                                    </section>
 <p>Emerson said: "Always do what you are afraid to do." To that end, I'm seeking to continually scare myself: Reinvent myself like I did in Florida; continue to learn every day and question the world around me as I learned at Holy Cross; experience new perspectives and cultures (Ireland and South America); and pursue work that contributes to something larger than myself.</p>
   </div>
 </div>
-
+    
 <style>
 .distance-container {
     position: absolute;
@@ -107,111 +125,89 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoiamtjcm93MTIiLCJhIjoiY2o3amw2dzk3MjRwMTMzbHg0ZjV2ZGF0NiJ9.F2pD6ooaEd3npeV-ndCfNQ';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/jkcrow12/cj7qoc9iod5ue2sp1nezgfzen',
+    style: 'jkevincrowley/cjcrzdbyb1giy2rmiq19pcbut',
     center: [-93.663,36.517],
     zoom: 1.9
 });
 
-var distanceContainer = document.getElementById('distance');
-
-// GeoJSON object to hold our measurement features
-var geojson = {
-    "type": "FeatureCollection",
-    "features": []
-};
-
-// Used to draw a line between points
-var linestring = {
-    "type": "Feature",
-    "geometry": {
-        "type": "LineString",
-        "coordinates": []
+var chapters = {
+    'Hello': {
+        bearing: -114.40,
+        center: [-77.034,38.899],
+        zoom: 18.1,
+        pitch: 58.50
+    }
+    'where lived': {
+        bearing: 0,
+        center: [-87.209,40.408],
+        zoom: 4.58,
+        pitch: 0
+    }
+    'new york': {
+        bearing: -44.80,
+        center: [-73.618,40.629],
+        zoom: 12.69,
+        pitch: 58.50
+    }
+    'florida': {
+        bearing: -114.40,
+        center: [-81.810,26.179],
+        zoom: 11.53,
+        pitch: 58.50
+    }
+    'holy cross': {
+        bearing: -114.40,
+        center: [77.034,38.899],
+        zoom: 18.1,
+        pitch: 58.50
+    }
+    'dublin': {
+        bearing: -114.40,
+        center: [77.034,38.899],
+        zoom: 18.1,
+        pitch: 58.50
+    }
+    'juneau': {
+        bearing: -114.40,
+        center: [77.034,38.899],
+        zoom: 18.1,
+        pitch: 58.50
+    }
+    'everything else': {
+        bearing: -114.40,
+        center: [77.034,38.899],
+        zoom: 18.1,
+        pitch: 58.50
+    }
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
     }
 };
 
-map.on('load', function() {
-    map.addSource('geojson', {
-        "type": "geojson",
-        "data": geojson
-    });
+var activeChapterName = 'hello';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
 
-    // Add styles to the map
-    map.addLayer({
-        id: 'measure-points',
-        type: 'circle',
-        source: 'geojson',
-        paint: {
-            'circle-radius': 3,
-            'circle-color': '#000'
-        },
-        filter: ['in', '$type', 'Point']
-    });
-    map.addLayer({
-        id: 'measure-lines',
-        type: 'line',
-        source: 'geojson',
-        layout: {
-            'line-cap': 'round',
-            'line-join': 'round'
-        },
-        paint: {
-            'line-color': '#000',
-            'line-width': 1.5
-        },
-        filter: ['in', '$type', 'LineString']
-    });
+    map.flyTo(chapters[chapterName]);
 
-    map.on('click', function(e) {
-        var features = map.queryRenderedFeatures(e.point, { layers: ['measure-points'] });
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
 
-        // Remove the linestring from the group
-        // So we can redraw it based on the points collection
-        if (geojson.features.length > 1) geojson.features.pop();
+    activeChapterName = chapterName;
+}
 
-        // Clear the Distance container to populate it with a new value
-        distanceContainer.innerHTML = '';
-
-        // If a feature was clicked, remove it from the map
-        if (features.length) {
-            var id = features[0].properties.id;
-            geojson.features = geojson.features.filter(function(point) {
-                return point.properties.id !== id;
-            });
-        } else {
-            var point = {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        e.lngLat.lng,
-                        e.lngLat.lat
-                    ]
-                },
-                "properties": {
-                    "id": String(new Date().getTime())
-                }
-            };
-
-            geojson.features.push(point);
-        }
-
-        if (geojson.features.length > 1) {
-            linestring.geometry.coordinates = geojson.features.map(function(point) {
-                return point.geometry.coordinates;
-            });
-
-            geojson.features.push(linestring);
-
-            // Populate the distanceContainer with total distance
-            var value = document.createElement('pre');
-            value.textContent = 'Total distance: ' + turf.lineDistance(linestring).toLocaleString() + 'km';
-            distanceContainer.appendChild(value);
-        }
-
-        map.getSource('geojson').setData(geojson);
-    });
-});
-
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+    
 </script>
     
 </body>
